@@ -77,3 +77,12 @@ fun User.apply(block: User.() -> Unit): User{
 }
 
 ```
+
+* [Kotlin Jetpack 实战｜05. Kotlin 泛型](https://juejin.cn/post/6856553487598256141)
+    1. 泛型的不变性 ： 取 和 放 需要类型一致
+    2. 泛型的协变(Covariant) ： 只取 out
+    3. 泛型的逆变(Contravariant) ： 只放 in
+    4. 使用处型变
+        1. 使用处协变  out
+        2. 使用处逆变  in
+    5. UnsafeVariance
