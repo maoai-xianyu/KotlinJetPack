@@ -15,6 +15,7 @@ import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
+import com.mao.kotlinjetpack.chapter.c04.WebActivity
 import com.mao.kotlinjetpack.entity.User
 import com.mao.kotlinjetpack.entity.applySelf
 import com.mao.kotlinjetpack.entity.applySelfS
@@ -95,7 +96,9 @@ class MainActivity : AppCompatActivity() {
             this@MainActivity.company.text = company
             website.text = blog
             image!!.setOnClickListener { gotoImagePreviewActivity(user) }
+            gif.setOnClickListener { gotoWebActivity() }
         }
+
 
         // user 自定义扩展函数实现 apply
 
@@ -182,6 +185,13 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(EXTRA_PHOTO, user.avatar_url)
         startActivity(intent)
     }
+
+
+    private fun gotoWebActivity() {
+        val intent = Intent(this, WebActivity::class.java)
+        startActivity(intent)
+    }
+
 
     override fun onStop() {
         super.onStop()
