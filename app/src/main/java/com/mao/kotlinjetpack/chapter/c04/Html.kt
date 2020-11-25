@@ -26,19 +26,19 @@ open class BaseElement(val name: String, val content: String = "") : Element {
     val hashMap = HashMap<String, String>()
 
     override fun render(builder: StringBuilder, indent: String): String {
-
-
+        println(" indent  $indent")
         builder.append("$indent<$name>\n")
-        if (content.isNotBlank()){
+        if (content.isNotBlank()) {
             builder.append(" $indent$content\n")
         }
         children.forEach {
-            it.render(builder,"$indent ")
+            it.render(builder, "$indent ")
         }
         builder.append("$indent</$name>\n")
         return builder.toString()
     }
 
+    // 可以不用
     operator fun String.invoke(block: BaseElement.() -> Unit): BaseElement {
         val element = BaseElement(this)
         element.block()
@@ -46,9 +46,11 @@ open class BaseElement(val name: String, val content: String = "") : Element {
         return element
     }
 
+    // 可以不用
     operator fun String.invoke(value: String) {
         this@BaseElement.hashMap[this] = value
     }
+
     override fun toString(): String {
         val builder = StringBuilder()
         render(builder, "")
@@ -157,7 +159,8 @@ fun html(block: HTML.() -> Unit): HTML {
 fun main() {
     val htmlContent = html {
         head {
-            title { "Kotlin Jetpack In Action" }
+            /*title { "Kotlin Jetpack In Action" }*/
+            "title"("Kotlin Jetpack In Action" )
         }
         body {
             h1 { "Kotlin Jetpack In Action" }
@@ -180,8 +183,10 @@ fun main() {
                 src = "https://user-gold-cdn.xitu.io/2020/6/15/172b55ce7bf25419?imageslim",
                 alt = "Kotlin Jetpack In Action"
             )
+
         }
     }.toString()
 
     println(htmlContent)
 }
+
