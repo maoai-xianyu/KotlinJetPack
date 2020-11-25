@@ -86,3 +86,8 @@ fun User.apply(block: User.() -> Unit): User{
         1. 使用处协变  out
         2. 使用处逆变  in
     5. UnsafeVariance
+
+* [Kotlin Jetpack 实战｜06. Kotlin 扩展](https://juejin.cn/post/6857678090794237959)
+    1. 顶层扩展
+    2. 顶层扩展的原理：是对应的java的静态方法
+    3. 类内扩展

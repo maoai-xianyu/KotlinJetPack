@@ -1,6 +1,7 @@
 package com.mao.kotlinjetpack
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.mao.kotlinjetpack.chapter.c04.WebActivity
+import com.mao.kotlinjetpack.chapter.c06.*
 import com.mao.kotlinjetpack.entity.User
 import com.mao.kotlinjetpack.entity.applySelf
 import com.mao.kotlinjetpack.entity.applySelfS
@@ -92,9 +94,20 @@ class MainActivity : AppCompatActivity() {
             Glide.with(this@MainActivity).load(user.avatar_url)
                 .apply(RequestOptions.circleCropTransform())
                 .into(image!!)
-            username.text = name
+            username.text = ktxSpan {
+                name!!.bold().italic().size(1.3F).background(Color.YELLOW)
+                    .append("\n")
+                    .append("\n")
+                    .append("Google".strike().italic().size(0.8F).color(Color.GRAY))
+                    .append("\n")
+                    .append(company!!.color(Color.BLUE).underline())
+                    .append("\n")
+                    .append("\n")
+                    .append(url(blog!!, blog))
+            }
+            /*username.text = name
             this@MainActivity.company.text = company
-            website.text = blog
+            website.text = blog*/
             image!!.setOnClickListener { gotoImagePreviewActivity(user) }
             gif.setOnClickListener { gotoWebActivity() }
         }

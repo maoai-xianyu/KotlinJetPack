@@ -2,7 +2,6 @@ package com.mao.kotlinjetpack.chapter.c04
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.WebView
 import com.mao.kotlinjetpack.R
 import kotlinx.android.synthetic.main.activity_web.*
 
