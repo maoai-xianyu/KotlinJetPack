@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             )
 
         user?.apply {
-            Glide.with(this@MainActivity).load("file:///android_asset/get_min.gif").into(gif_1!!)
+            Glide.with(this@MainActivity).load("file:///android_asset/get_card.gif").into(gif_1!!)
             Glide.with(this@MainActivity).load("file:///android_asset/bless.gif").into(gif!!)
             Glide.with(this@MainActivity).load(user.avatar_url)
                 .apply(RequestOptions.circleCropTransform())
