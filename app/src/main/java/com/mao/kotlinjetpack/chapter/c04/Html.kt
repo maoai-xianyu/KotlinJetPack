@@ -26,7 +26,6 @@ open class BaseElement(val name: String, val content: String = "") : Element {
     val hashMap = HashMap<String, String>()
 
     override fun render(builder: StringBuilder, indent: String): String {
-        println(" indent  $indent")
         builder.append("$indent<$name>\n")
         if (content.isNotBlank()) {
             builder.append(" $indent$content\n")
@@ -107,7 +106,7 @@ class BODY : BaseElement("body") {
             this.src = src
             this.alt = alt
         }
-        this.children += children
+        this.children += img
         return img
 
     }
@@ -131,10 +130,9 @@ class IMG : BaseElement("img") {
         }
 
     override fun render(builder: StringBuilder, indent: String): String {
-        println("indent $indent")
         builder.append("$indent<$name")
         builder.append(renderAttributes())
-        builder.append("$/$name>\n")
+        builder.append(" /$name>\n")
         return builder.toString()
     }
 
