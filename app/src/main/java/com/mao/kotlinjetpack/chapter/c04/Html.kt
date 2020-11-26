@@ -132,7 +132,7 @@ class IMG : BaseElement("img") {
     override fun render(builder: StringBuilder, indent: String): String {
         builder.append("$indent<$name")
         builder.append(renderAttributes())
-        builder.append(" /$name>\n")
+        builder.append(" />\n")
         return builder.toString()
     }
 

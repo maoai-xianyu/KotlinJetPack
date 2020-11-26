@@ -91,3 +91,6 @@ fun User.apply(block: User.() -> Unit): User{
     1. 顶层扩展
     2. 顶层扩展的原理：是对应的java的静态方法
     3. 类内扩展
+
+* [Kotlin Jetpack 实战 | 07. Kotlin 委托](https://juejin.cn/post/6859172099680894989)
+

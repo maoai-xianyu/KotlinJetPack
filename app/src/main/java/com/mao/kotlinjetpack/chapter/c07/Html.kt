@@ -1,10 +1,12 @@
-package com.mao.kotlinjetpack.chapter.c05
+package com.mao.kotlinjetpack.chapter.c07
+
+import kotlin.reflect.KProperty
 
 /**
  *
  * @author zhangkun
  * @time 2020/11/9 9:29 PM
- * @Description
+ * @Description 修改代理
  */
 
 /**
@@ -105,18 +107,25 @@ class P : BaseElement("p")
 
 class H1 : BaseElement("h1")
 
-class IMG : BaseElement("img") {
-    var src: String
-        get() = hashMap["src"]!!
-        set(value) {
-            hashMap["src"] = value
-        }
 
-    var alt: String
-        get() = hashMap["alt"]!!
-        set(value) {
-            hashMap["alt"] = value
-        }
+// 可以修改的代理
+
+operator fun HashMap<String, String?>.getValue(thisRef: Any, property: KProperty<*>): String? {
+    return this[property.name]
+}
+
+operator fun HashMap<String, String?>.setValue(
+    thisRef: Any,
+    property: KProperty<*>,
+    value: String
+) {
+    set(property.name, value)
+}
+
+
+class IMG : BaseElement("img") {
+    var src: String by hashMap
+    var alt: String by hashMap
 
     override fun render(builder: StringBuilder, indent: String): String {
         builder.append("$indent<$name")
