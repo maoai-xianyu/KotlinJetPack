@@ -6,11 +6,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-public class AdjustTextView extends TextView {
+public class AdjustTextView extends androidx.appcompat.widget.AppCompatTextView {
     private Paint mTextPaint;
     private float mTextSize;
 
@@ -26,16 +25,12 @@ public class AdjustTextView extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-    public AdjustTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
     /**
      * Re size the font so the specified text fits in the text box assuming the
      * text box is the specified width.
      *
      * @param text
-     * @param textWidth
+     * @param textViewWidth
      */
     private void refitText(String text, int textViewWidth) {
         if (text == null || textViewWidth <= 0)
