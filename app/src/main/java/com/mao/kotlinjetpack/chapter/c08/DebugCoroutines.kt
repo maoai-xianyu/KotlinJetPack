@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 /**
  * @author zhangkun
  * @time 2020/11/27 2:53 PM
- * @Description
+ * @Description  将-Dkotlinx.coroutines.debug填入 VM options 中： 可以打印当前协程的名字
  */
 
 fun main() {
