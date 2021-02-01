@@ -94,3 +94,6 @@ fun User.apply(block: User.() -> Unit): User{
 
 * [Kotlin Jetpack 实战 | 07. Kotlin 委托](https://juejin.cn/post/6859172099680894989)
 
+* [Kotlin Jetpack 实战 | 08. 协程“不为人知”的调试技巧](https://juejin.cn/post/6860647298926379021)
+
+* [Kotlin Jetpack 实战 | 09. 图解协程原理](https://juejin.cn/post/6883652600462327821)
