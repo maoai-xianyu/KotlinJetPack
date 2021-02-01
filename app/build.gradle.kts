@@ -40,16 +40,26 @@ android {
 }
 
 dependencies {
-    implementation(Libs.kotlinStdLib)
-    implementation(Libs.ktxCore)
+    // Android
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.appCompat)
     implementation(Libs.material)
     implementation(Libs.constraintlayout)
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.testExt)
     androidTestImplementation(Libs.espresso)
+
+    // kotlin
+    implementation(Libs.kotlinStdLib)
+    implementation(Libs.ktxCore)
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesAndroid)
+
+    // Network
     implementation(Libs.volley)
     implementation(Libs.gson)
+
+    // Image Display
     implementation(Libs.glide)
     annotationProcessor(Libs.glideCompiler)
 }
